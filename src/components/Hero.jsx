@@ -74,26 +74,7 @@ function HeroCube() {
 }
 const Hero = () => {
     
-    useGSAP(()=>{
-        //heading animation
-        const headsplit=new SplitText(".heading",{type:"chars,words"})
-        gsap.from(headsplit.chars,{
-            yPercent:100,
-            duration:1.8,
-            ease:"expo.out",
-            stagger:0.06,
-            opacity:0,
-    })
-    //paragraph animation
-    const parasplit=new SplitText(".para",{type:"lines"})
-    gsap.from(parasplit.lines,{
-        yPercent:100,
-        duration:1.8,
-        ease:"expo.out",
-        stagger:0.3,
-        opacity:0,
-    })
-    }, [])
+   
   return (
     <section
       id="hero"

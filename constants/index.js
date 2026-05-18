@@ -16,7 +16,24 @@ const navLinks = [
 	title: "Contact",
  },
 ];
-
+const skillCategories = [
+  "React",
+  "Frontend Development",
+  "Python",
+  "Machine Learning",
+  "Deep Learning",
+  "Tailwind CSS",
+  "Freelancing",
+  "Artificial Intelligence",
+  "Three.js",
+  "TanStack Query",
+  "Clerk",
+  "Firebase",
+  "C++",
+  "Data Structures & Algorithms",
+  "C",
+  "Academics",
+];
 const cocktailLists = [
  {
 	name: "Chapel Hill Shiraz",
@@ -180,4 +197,5 @@ export {
  storeInfo,
  socials,
  allCocktails,
+ skillCategories
 };
