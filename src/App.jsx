@@ -3,16 +3,18 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 
 import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/all'
+import { ScrollTrigger, SplitText } from 'gsap/all'
 import { useGSAP } from '@gsap/react'
 import Achievements from './components/Achievements'
+import About from './components/About'
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger,SplitText)
 
 const App = () => {
 
   useGSAP(() => {
-
+const headsplit = new SplitText(".heading", { type: "chars,words" })
+      const parasplit = new SplitText(".para", { type: "lines" })
     const maskedtimeline = gsap.timeline({
       scrollTrigger: {
         trigger: "#main",
@@ -20,6 +22,7 @@ const App = () => {
         end: "+=1600",
         scrub: 1.5,
         pin: true,
+      
       }
     })
 
@@ -53,6 +56,117 @@ maskedtimeline
   duration: 1,
   ease: 'power2.out',
 })
+.from(headsplit.chars, {
+        yPercent: 100,
+        duration: 1.8,
+        ease: "expo.out",
+        stagger: 0.06,
+        opacity: 0,
+      }).from(parasplit.lines, {
+        yPercent: 100,
+        duration: 1.8,
+        ease: "expo.out",
+        stagger: 0.3,
+        opacity: 0,
+      })
+
+
+// SPLITS
+
+  const headingSplit = new SplitText('.about-heading', {
+    type: 'chars ,words',
+  })
+
+  const paraSplit = new SplitText('.about-para', {
+    type: 'lines',
+  })
+
+  // SET INITIAL STATES
+  gsap.set('.about-card', {
+    opacity: 0,
+    y: 100,
+    scale: 0.9,
+  })
+
+  gsap.set('.herocube', {
+    opacity: 0,
+    scale: 0.5,
+    rotate: -20,
+  })
+
+  gsap.set('.marquee-wrapper', {
+    opacity: 0,
+    y: 40,
+  })
+
+  // MASTER TIMELINE
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: '#about',
+      start: 'top 80%',
+      toggleActions: 'play none none reverse',
+      
+     
+    }
+  })
+
+  // HEADING
+  tl.from(headingSplit.chars, {
+    yPercent: 120,
+    opacity: 0,
+    stagger: 0.03,
+    duration: 1.1,
+    ease: 'expo.out',
+  })
+
+  // CUBE
+  .to('.herocube', {
+    opacity: 1,
+    scale: 1,
+    rotate: 0,
+    duration: 1,
+    ease: 'back.out(1.7)',
+  }, '-=0.8')
+
+  // PARAGRAPH
+  .from(paraSplit.lines, {
+    y: 70,
+    opacity: 0,
+    stagger: 0.08,
+    duration: 0.5,
+    ease: 'power3.out',
+  }, '-=0.5')
+
+  // TECH CARD
+  .to('.about-card', {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    duration: 1.2,
+    ease: 'power4.out',
+  }, '-=0.8')
+
+  // MARQUEE APPEAR
+  .to('.marquee-wrapper', {
+    opacity: 1,
+    y: 0,
+    duration: 1,
+    ease: 'power3.out',
+  }, '-=0.5')
+
+  // MARQUEE MOVE
+  gsap.to('.marquee-track', {
+    xPercent: -50,
+    duration: 18,
+    repeat: -1,
+    ease: 'linear',
+  })
+
+  return () => {
+    headingSplit.revert()
+    paraSplit.revert()
+  }
+   ScrollTrigger.refresh() 
 
   }, [])
 
@@ -136,10 +250,13 @@ maskedtimeline
         <Hero />
         
       </section>
+
       <section id="achievements">
         <Achievements/>
       </section>
-
+      <section  className='relative max-w-full mx-0'>
+        <About/>
+      </section>
      
 
     </main>
