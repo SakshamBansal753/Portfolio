@@ -43,7 +43,7 @@ const About = () => {
       <div className="relative z-10 setid">
 
         {/* Heading */}
-        <p className="mb-4 text-sm uppercase tracking-[0.45em] text-white/40">
+        <p className="mb-4 text-sm uppercase tracking-[0.45em] text-white/40 hover:text-white-100">
           About Me
         </p>
 
@@ -62,7 +62,7 @@ const About = () => {
             products with code & creativity
           </h1>
           </div>
-          <div className='relative right-2 herocube'>
+          <div className='relative right-12 herocube'>
           <HeroCube/>
           </div>
 

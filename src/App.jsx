@@ -7,6 +7,7 @@ import { ScrollTrigger, SplitText } from 'gsap/all'
 import { useGSAP } from '@gsap/react'
 import Achievements from './components/Achievements'
 import About from './components/About'
+import Projects from './components/Projects'
 
 gsap.registerPlugin(ScrollTrigger,SplitText)
 
@@ -70,8 +71,41 @@ maskedtimeline
         opacity: 0,
       })
 
+const achievehead=new SplitText(".achievement-heading", { type: "chars,words" })
 
 // SPLITS
+const achievetimeline=gsap.timeline({
+  scrollTrigger:{
+    trigger:"#achievements",
+    start:"top 80%",
+    toggleActions:"play none none reverse",
+  }
+})
+gsap.set('.leftie',{
+  opacity: 0,
+  y: 50
+})
+gsap.set('.rightie',{
+  opacity: 0,
+  y: 50
+})
+achievetimeline.from(achievehead.chars,{
+  yPercent: 120,
+  opacity: 0,
+  stagger: 0.03,
+  duration: 1.1,
+  ease: 'expo.out',
+}).to('.leftie',{
+  opacity: 1,
+  y: 0,
+  duration: 1,
+  ease: 'power4.out',
+},'-=0.8').to('.rightie',{
+  opacity: 1,
+  y: 0,
+  duration: 1,
+  ease: 'power4.out',
+},'-=0.5')  
 
   const headingSplit = new SplitText('.about-heading', {
     type: 'chars ,words',
@@ -133,7 +167,7 @@ maskedtimeline
     y: 70,
     opacity: 0,
     stagger: 0.08,
-    duration: 0.5,
+    duration: 0.3,
     ease: 'power3.out',
   }, '-=0.5')
 
@@ -142,9 +176,9 @@ maskedtimeline
     opacity: 1,
     y: 0,
     scale: 1,
-    duration: 1.2,
+    duration: 0.4,
     ease: 'power4.out',
-  }, '-=0.8')
+  }, '-=0.5')
 
   // MARQUEE APPEAR
   .to('.marquee-wrapper', {
@@ -161,10 +195,29 @@ maskedtimeline
     repeat: -1,
     ease: 'linear',
   })
+  const projectsplit=new SplitText('.projectheading',{
+    type:'chars,words'
+  })
+  const projecttime=gsap.timeline({
+    scrollTrigger:{
+      trigger:"#projects",
+      start:"top 80%",
+      toggleActions:"play none none reverse",
+    }
+  })
+  projecttime.from(projectsplit.chars,{
+    yPercent: 120,
+    opacity: 0,
+    stagger: 0.03,
+    duration: 1.1,
+    ease: 'expo.out',
+  })
 
   return () => {
     headingSplit.revert()
     paraSplit.revert()
+    projectsplit.revert()
+    achievehead.revert()
   }
    ScrollTrigger.refresh() 
 
@@ -251,11 +304,14 @@ maskedtimeline
         
       </section>
 
-      <section id="achievements">
+      <section >
         <Achievements/>
       </section>
       <section  className='relative max-w-full mx-0'>
         <About/>
+      </section>
+      <section>
+        <Projects/>
       </section>
      
 
