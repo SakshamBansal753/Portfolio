@@ -1,14 +1,13 @@
 import { useState, useRef, useEffect, useCallback } from "react";
+import PixelSphere from "./PixelSphere";
 
 const PROJECTS = [
-  { title: "Nebula OS",   tag: "Systems",   color: "#7C3AED", accent: "#A78BFA", icon: "⬡", desc: "Distributed OS for edge computing clusters. Handles orchestration and real-time telemetry across 10k+ devices.", tech: ["Rust","WASM","gRPC"],       year: "2024" },
-  { title: "Flux Engine", tag: "Graphics",  color: "#0891B2", accent: "#67E8F9", icon: "◈", desc: "Real-time renderer using signed distance fields. Global illumination and volumetric fog at 144fps.",           tech: ["C++","GLSL","Vulkan"],       year: "2024" },
-  { title: "Synapse ML",  tag: "AI / ML",   color: "#059669", accent: "#6EE7B7", icon: "◎", desc: "Neural architecture search that auto-designs models for edge inference. 94% model size reduction.",             tech: ["Python","PyTorch","CUDA"],   year: "2023" },
-  { title: "Meridian",    tag: "Fintech",   color: "#D97706", accent: "#FCD34D", icon: "◇", desc: "Cross-border payment rail using threshold signatures. Settles in under 3 seconds.",                             tech: ["Go","Solidity","ZK"],        year: "2024" },
-  { title: "Vaulted",     tag: "Security",  color: "#DC2626", accent: "#FCA5A5", icon: "⬟", desc: "Zero-trust secret management with hardware attestation and ephemeral credential vending.",                      tech: ["Rust","TPM","mTLS"],         year: "2023" },
-  { title: "Prism DB",    tag: "Database",  color: "#6D28D9", accent: "#C4B5FD", icon: "▲", desc: "Columnar OLAP database for time-series. 50M inserts/sec with SIMD vectorisation.",                             tech: ["C++","Arrow","Parquet"],     year: "2024" },
-  { title: "Orbit SDK",   tag: "Dev Tools", color: "#0E7490", accent: "#A5F3FC", icon: "○", desc: "Universal embedded SDK. Write once, target ARM, RISC-V, x86 with deterministic layout.",                       tech: ["Zig","LLVM","CMake"],        year: "2023" },
-  { title: "Helios API",  tag: "Platform",  color: "#047857", accent: "#A7F3D0", icon: "◐", desc: "Unified developer gateway. Adaptive rate limiting and semantic caching at 5M req/day.",                        tech: ["Go","Redis","Envoy"],        year: "2024" },
+  { title: "Poem Writing",   tag: "Literature",   color: "#7C3AED", accent: "#A78BFA", icon: "⬡", desc: "I used to write english and hindi poems published at school calender of year", tech: ["Hindi","English"],       year: "2019-Now" },
+  { title: "Listening Songs", tag: "Music",  color: "#0891B2", accent: "#67E8F9", icon: "◈", desc: "Listening Hindi and English songs especially mind relaxing songs",           tech: ['Arijit Singh',"Shreya Ghoshal","A.R. Rehman"],       year: "" },
+  { title: "Taekwondo",  tag: "Sports",   color: "#059669", accent: "#6EE7B7", icon: "◎", desc: "A martial art and combat sport used for self-defense and physical fitness.",             tech: ["Kicks","Punches"],   year: "2019-22" },
+  { title: "Coding",    tag: "Tech",   color: "#D97706", accent: "#FCD34D", icon: "◇", desc: "Creating web applications and solving coding challenges.",                             tech: ['Python',"React"],        year: "2024-Now" },
+  { title: "Space",     tag: "Science",  color: "#DC2626", accent: "#FCA5A5", icon: "⬟", desc: "Learn and research about modern space and galaxies.",                      tech: ["Astronomy","Physics"],         year: "2015-Now" },
+  { title: "Drawing",    tag: "Art",  color: "#6D28D9", accent: "#C4B5FD", icon: "▲", desc: "Love to draw simple arts and landscapes.",                             tech: ["Canvas","Art"],     year: "" },
 ];
 
 const N = PROJECTS.length;
@@ -127,14 +126,12 @@ export default function RoundTableCarousel() {
         @keyframes glowP{0%,100%{opacity:.5}50%{opacity:1}}
       `}</style>
 
-      <Starfield />
-      <div style={{ position:"fixed", width:500, height:500, borderRadius:"50%", filter:"blur(130px)", background:PROJECTS[frontIdx].color, top:"40%", left:"50%", transform:"translate(-50%,-50%)", pointerEvents:"none", opacity:0.1, transition:"background 1.2s, opacity 0.8s", zIndex:1 }} />
+      
+      <div style={{ position:"fixed", width:500, height:500, borderRadius:"50%", filter:"blur(130px)",  top:"40%", left:"50%", transform:"translate(-50%,-50%)", pointerEvents:"none", opacity:0.1, transition:"background 1.2s, opacity 0.8s", zIndex:1 }} />
 
       <div style={{ position:"relative", zIndex:2, display:"flex", flexDirection:"column", alignItems:"center" }}>
-        <p style={{ fontFamily:"'DM Mono',monospace", fontSize:9, letterSpacing:"0.2em", textTransform:"uppercase", color:"rgba(255,255,255,.22)", marginBottom:5 }}>Portfolio</p>
-        <h1 style={{ fontSize:28, fontWeight:700, letterSpacing:"-0.04em", color:"rgba(255,255,255,.85)", marginBottom:30 }}>
-          Selected <span style={{color:"rgba(255,255,255,.18)"}}>/</span> Works
-        </h1>
+
+       
 
         <div style={{ display:"flex", alignItems:"center" }}>
           <button style={arrowStyle} onClick={()=>shift(-1)} onMouseOver={e=>Object.assign(e.currentTarget.style,{background:"rgba(255,255,255,.1)",borderColor:"rgba(255,255,255,.25)",color:"#fff"})} onMouseOut={e=>Object.assign(e.currentTarget.style,{background:"rgba(255,255,255,.04)",borderColor:"rgba(255,255,255,.1)",color:"rgba(255,255,255,.6)"})} aria-label="Previous">&#8592;</button>
@@ -146,10 +143,19 @@ export default function RoundTableCarousel() {
           >
             <div style={{ width:"100%", height:"100%", position:"relative", transformStyle:"preserve-3d" }}>
               {/* Galaxy */}
-              <div style={{ position:"absolute", width:170, height:170, left:"calc(50% - 85px)", top:"calc(50% - 85px)", borderRadius:"50%", overflow:"hidden", zIndex:Math.floor(N/2), pointerEvents:"none", border:"1px solid rgba(255,255,255,.08)", boxShadow:"0 0 40px rgba(100,80,255,.15)" }}>
+              <div style={{ position:"absolute", width:570, height:570, left:"calc(20% - 85px)", top:"calc(20% - 140px)", borderRadius:"50%", overflow:"hidden", zIndex:Math.floor(N/2), pointerEvents:"none", border:"1px solid rgba(255,255,255,.08)", boxShadow:"0 0 40px rgba(100,80,255,.15)" }}>
                 <div style={{ position:"absolute", inset:-20, borderRadius:"50%", background:"radial-gradient(ellipse,rgba(80,60,200,.18) 0%,transparent 70%)", animation:"glowP 4s ease-in-out infinite" }} />
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/NGC_4414_%28NASA-med%29.jpg/1024px-NGC_4414_%28NASA-med%29.jpg" alt="Galaxy NGC 4414" style={{ width:"100%", height:"100%", objectFit:"cover", borderRadius:"50%", opacity:0.85, animation:"galaxySpin 80s linear infinite" }} crossOrigin="anonymous" />
-              </div>
+               <div
+  style={{
+    width: "100%",
+    height: "100%",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  }}
+>
+  <PixelSphere width={900} height={900} />
+</div>               </div>
 
               {sorted.map(({i,x,z,rotY,scale,opacity,front})=>{
                 const p=PROJECTS[i];

@@ -8,6 +8,8 @@ import { useGSAP } from '@gsap/react'
 import Achievements from './components/Achievements'
 import About from './components/About'
 import Projects from './components/Projects'
+import Hobbies from './components/Hobbies'
+import Contact from './components/Contact'
 
 gsap.registerPlugin(ScrollTrigger,SplitText)
 
@@ -212,12 +214,28 @@ achievetimeline.from(achievehead.chars,{
     duration: 1.1,
     ease: 'expo.out',
   })
+  const hobbyhead=new SplitText(".hobbyheading", { type: "chars,words" })
+  const hobbyTimeline=gsap.timeline({
+    scrollTrigger:{
+      trigger:"#hobbies",
+      start:"top 80%",
+      toggleActions:"play none none reverse",
+    }
+  })
+  hobbyTimeline.from(hobbyhead.chars,{
+    yPercent: 120,
+    opacity: 0,
+    stagger: 0.03,
+    duration: 1.1,
+    ease: 'expo.out',
+  })
 
   return () => {
     headingSplit.revert()
     paraSplit.revert()
     projectsplit.revert()
     achievehead.revert()
+    hobbyhead.revert()
   }
    ScrollTrigger.refresh() 
 
@@ -312,6 +330,12 @@ achievetimeline.from(achievehead.chars,{
       </section>
       <section>
         <Projects/>
+      </section>
+      <section>
+        <Hobbies/>
+      </section>
+      <section>
+        <Contact/>
       </section>
      
 
