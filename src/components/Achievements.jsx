@@ -1,10 +1,9 @@
-import React from 'react'
-import PixelSphere from './PixelSphere'
-import SkillCard from './SkillCard'
+import React from "react";
+import PixelSphere from "./PixelSphere";
+import SkillCard from "./SkillCard";
 
 const Achievements = () => {
   return (
-
     <section
       id="achievements"
       className="
@@ -17,30 +16,39 @@ const Achievements = () => {
         max-w-full
       "
     >
-
-<div>
-  <p className="mb-4 text-sm uppercase tracking-[0.45em] text-white/40 hover:text-white-100">
+      {/* Heading */}
+      <div>
+        <p
+          className="
+            mb-4 text-sm
+            uppercase
+            tracking-[0.45em]
+            text-white/40
+            hover:text-white
+          "
+        >
           Achievements
         </p>
 
         <div className="overflow-hidden flex justify-between">
-    <div>
-          <h1
-            className="
-              achievement-heading
-              max-w-full
-              text-5xl font-black leading-[0.9]
-              text-white
-              md:text-8xl
-              border-b-4 border-white/10
-              
-            "
-          >
-            What I Achieved So Far
-          </h1>
+          <div>
+            <h1
+              className="
+                achievement-heading
+                max-w-full
+                text-5xl font-black
+                leading-[0.9]
+                text-white
+                md:text-8xl
+                border-b-4 border-white/10
+              "
+            >
+              What I Achieved So Far
+            </h1>
           </div>
-          </div>
-</div>
+        </div>
+      </div>
+
       {/* Glow */}
       <div
         className="
@@ -53,22 +61,21 @@ const Achievements = () => {
         "
       />
 
+      {/* Main Layout */}
       <div
         className="
           relative z-10
-          mx-auto
+          mx-auto mt-20
           grid max-w-7xl
           items-center gap-8
           lg:grid-cols-[0.9fr_420px_0.9fr]
         "
       >
-
         {/* LEFT SIDE */}
         <div className="flex flex-col gap-5 leftie">
-
           <div className="h-[180px]">
             <SkillCard
-              title="Top-5 In DSA Compedition"
+              title="Top-5 In DSA Competition"
               icon="/images/leetcode.png"
               image="/images/DSA.png"
             />
@@ -89,30 +96,39 @@ const Achievements = () => {
               image="/images/dsa.jpeg"
             />
           </div>
-
         </div>
 
         {/* CENTER SPHERE */}
-        <div className="flex items-center justify-center">
-
-          <PixelSphere />
-
+        <div className="flex items-center justify-center w-[420px] h-[420px] mx-auto">
+          <div
+            className="
+              relative
+              flex items-center justify-center
+              w-[420px] h-[420px]
+              rounded-full
+              border border-white/10
+              bg-white/[0.02]
+              shadow-[0_0_100px_rgba(0,255,255,0.08)]
+              overflow-hidden
+            "
+          >
+            <PixelSphere width={420} height={420} />
+          </div>
         </div>
 
         {/* RIGHT SIDE */}
         <div className="flex flex-col gap-5 rightie">
-
           <div className="h-[180px]">
             <SkillCard
-              title="Top 20 In college level compettive coding"
-              icon="/icons/th"
+              title="Top 20 In College Level Competitive Coding"
+              icon="/images/th.png"
               image="/images/three-bg.jpg"
             />
           </div>
 
           <div className="h-[180px]">
             <SkillCard
-              title="Silver Medalist in District Level debate "
+              title="Silver Medalist in District Level Debate"
               icon="/images/debate.JPG"
               image="/images/debate.JPG"
             />
@@ -120,18 +136,15 @@ const Achievements = () => {
 
           <div className="h-[180px]">
             <SkillCard
-              title="Top 5 in Hack The Rank Compedition"
+              title="Top 5 in HackerRank Competition"
               icon="/images/hr.png"
               image="/images/hackrank.png"
             />
           </div>
-
         </div>
-
       </div>
-
     </section>
-  )
-}
+  );
+};
 
-export default Achievements
+export default Achievements;

@@ -69,17 +69,17 @@ const socials = [
  {
 	name: "Instagram",
 	icon: "/images/insta.png",
-	url: "#",
+	url: "https://www.instagram.com/sa_ksham1919/",
  },
  {
-	name: "X (Twitter)",
-	icon: "/images/x.png",
-	url: "#",
+	name: "Linkedin (Twitter)",
+	icon: "/images/link.jpg",
+	url: "https://www.linkedin.com/in/saksham-bansal-58123333a/",
  },
  {
-	name: "Facebook",
-	icon: "/images/fb.png",
-	url: "#",
+	name: "Github",
+	icon: "/images/gith.png",
+	url: "https://github.com/SakshamBansal753",
  },
 ];
 

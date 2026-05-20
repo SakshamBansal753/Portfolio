@@ -174,7 +174,7 @@ const SkillCard = ({
                   text-white/35
                 "
               >
-                Acieved
+                Achieved
               </p>
 
               <h2
