@@ -166,7 +166,9 @@ const About = () => {
                     "Firebase",
                     "Clerk",
                     "Three.js",
-                    "DeepLearning"
+                    "DeepLearning",
+                   "Agentic AI",
+                    "N8N"
                   ].map((tech) => (
 
                     <div
