@@ -41,6 +41,10 @@ const skillCategories = [
   "Data Structures & Algorithms",
   "C",
   "Academics",
+  "n8n",
+  "Agentic AI",
+  "Langchain",
+  "RAG"
 ];
 
 
@@ -109,9 +113,36 @@ const socials = [
     projectLink:
       "https://cool-frontend-94k9.vercel.app/",
   },
-
-  {
+   {
     id: 2,
+
+    title: "GitAI",
+
+    description:
+      "An agentic AI System which automate the github platform along with simple LLM Query",
+
+    type: "AGENTIC AI",
+
+    tech: [
+      "Langchain",
+      "MCP",
+      "Git",
+      "Groq",
+      "Python",
+      
+    ],
+
+    image:
+      "/images/GITAI.png",
+
+    githubLink:
+      "https://github.com/SakshamBansal753/GitFlow",
+
+    projectLink:
+      "https://github.com/SakshamBansal753/GitFlow",
+  },
+  {
+    id: 6,
 
     title: "Skild",
 
@@ -219,6 +250,7 @@ const socials = [
     projectLink:
       "https://github.com/SakshamBansal753/EchoNet",
   },
+   
 ];
 
 export {
