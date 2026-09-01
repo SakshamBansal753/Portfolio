@@ -1,4 +1,4 @@
-import React from 'react'
+
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 
@@ -229,7 +229,7 @@ achievetimeline.from(achievehead.chars,{
     duration: 1.1,
     ease: 'expo.out',
   })
-
+   ScrollTrigger.refresh() 
   return () => {
     headingSplit.revert()
     paraSplit.revert()
@@ -237,7 +237,7 @@ achievetimeline.from(achievehead.chars,{
     achievehead.revert()
     hobbyhead.revert()
   }
-   ScrollTrigger.refresh() 
+  
 
   }, [])
 

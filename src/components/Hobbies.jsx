@@ -1,4 +1,4 @@
-import React from 'react'
+
 import RoundTableCarousel from './RoundTabelCarousel'
 import HeroCube from './HeroCube'
 

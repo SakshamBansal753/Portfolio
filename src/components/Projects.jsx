@@ -1,6 +1,5 @@
 // Projects.jsx
 
-import React from "react";
 import ProjectCard from "./ProjectCard";
 import { projects } from "../../constants";
 

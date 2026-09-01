@@ -1,7 +1,7 @@
 import { FaGithubSquare } from "react-icons/fa"; 
 // ProjectCard.jsx
 
-import React, { useEffect, useRef } from "react";
+import  { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { motion } from "framer-motion";
 

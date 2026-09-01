@@ -14,27 +14,7 @@ const N = PROJECTS.length;
 const STEP = (2 * Math.PI) / N;
 const R = 340;
 
-function Starfield() {
-  const ref = useRef(null);
-  useEffect(() => {
-    const cvs = ref.current;
-    const ctx = cvs.getContext("2d");
-    let stars = [], raf;
-    const init = () => {
-      cvs.width = window.innerWidth; cvs.height = window.innerHeight;
-      stars = Array.from({ length: 260 }, () => ({ x: Math.random()*cvs.width, y: Math.random()*cvs.height, r: Math.random()*1.2+0.2, a: Math.random(), da: (Math.random()-0.5)*0.004+0.001 }));
-    };
-    const draw = () => {
-      ctx.clearRect(0, 0, cvs.width, cvs.height);
-      stars.forEach(s => { s.a = Math.max(0.05, Math.min(1, s.a+s.da)); if(s.a<=0.05||s.a>=1) s.da*=-1; ctx.beginPath(); ctx.arc(s.x,s.y,s.r,0,Math.PI*2); ctx.fillStyle=`rgba(255,255,255,${s.a})`; ctx.fill(); });
-      raf = requestAnimationFrame(draw);
-    };
-    init(); draw();
-    window.addEventListener("resize", init);
-    return () => { cancelAnimationFrame(raf); window.removeEventListener("resize", init); };
-  }, []);
-  return <canvas ref={ref} style={{ position:"fixed", inset:0, zIndex:0, pointerEvents:"none" }} />;
-}
+
 
 export default function RoundTableCarousel() {
   const [angle, setAngle] = useState(0);
