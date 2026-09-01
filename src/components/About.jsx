@@ -167,7 +167,7 @@ const About = () => {
                     "Clerk",
                     "Three.js",
                     "DeepLearning",
-                    "Agentic AI",
+                   "Agentic AI",
                     "N8N"
                   ].map((tech) => (
 
