@@ -85,6 +85,11 @@ const socials = [
 	icon: "/images/gith.png",
 	url: "https://github.com/SakshamBansal753",
  },
+ {
+  name:"X",
+  icon:"/images/x.png",
+  url:"https://x.com/kanha_saksham"
+ }
 ];
 
  const projects = [
