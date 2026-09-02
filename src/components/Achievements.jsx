@@ -128,7 +128,7 @@ const Achievements = () => {
 
           <div className="h-[180px]">
             <SkillCard
-              title="Silver Medalist in District Level Debate"
+              title="9.5 CGPA Overall in Current Year"
               icon="/images/debate.JPG"
               image="/images/debate.JPG"
             />
