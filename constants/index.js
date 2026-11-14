@@ -141,10 +141,10 @@ const socials = [
       "/images/GITAI.png",
 
     githubLink:
-      "https://github.com/SakshamBansal753/GitFlow",
+      "https://github.com/SakshamBansal753/gitai",
 
     projectLink:
-      "https://github.com/SakshamBansal753/GitFlow",
+      "https://github.com/SakshamBansal753/gitai",
   },
   {
     id: 6,
